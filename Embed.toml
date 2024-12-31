@@ -4,8 +4,8 @@ chip = "RP235x"
 [default.rtt]
 enabled = true
 
-[default.gdb]
+[with_gdb.gdb]
 enabled = true
 
-[default.reset]
+[with_gdb.reset]
 halt_afterwards = true

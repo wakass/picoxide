@@ -17,5 +17,8 @@ From the bleating edge: baaah
 ```cargo install --git https://github.com/konkers/probe-rs --branch wip/2350 probe-rs-tools --locked```
 
 ### Running/debugging
+#### Attached directly with usb
 * Using picotool: pico in bootsel mode: ```cargo run```
-* Using gdb and rtt: ```cargo embed``` and run in a separate window:```arm-none-eabi-gdb target/thumbv8m.main-none-eabihf/debug/picoxide```
+#### With a probe
+* Using just rtt: ```cargo embed``` 
+* Using gdb and rtt: ```cargo embed -- with_gdb``` and run ``` arm-none-eabi-gdb -ex 'target remote :1337' target/thumbv8m.main-none-eabihf/debug/picoxide``` in a separate window.
