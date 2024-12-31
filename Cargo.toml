@@ -4,7 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-thiserror="1"
+cortex-m-rt = "0.7.5"
+defmt = "0.3.10"
+panic-halt = "1.0.0"
+
 
 [dev-dependencies]
 anyhow="1"

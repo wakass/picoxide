@@ -1,7 +1,5 @@
-pub use crate::error::Error;
+//Just use everthing from the error crate
+pub use crate::error::*;
 
-pub type Result<T> = core::result::Result<T, Error>;
-
+//Generic type wrapping, useful for external modules (i think)
 pub struct W<T>(pub T);
-
-pub use std::format as f;

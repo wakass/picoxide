@@ -1,20 +1,18 @@
 #![allow(unused)]
+#![no_std]
+#![no_main]
 
 use crate::prelude::*;
-use std::fs::read_dir;
+use cortex_m_rt::entry;
+use panic_halt as _; //Ensure we have a panic handler
 
 mod error;
 mod prelude;
 mod utils;
 
-fn main() -> Result<()> {
+#[entry]
+fn main() -> ! {
     let somevar = 1;
-    println!("Hello, world! with some var {somevar}");
     let start_dir = "./";
-
-    for entry in read_dir(start_dir)?.filter_map(|e| e.ok()) {
-        let entry: String = W(&entry).try_into()?;
-        println!("{entry:?}");
-    }
-    Ok(())
+    loop {}
 }
