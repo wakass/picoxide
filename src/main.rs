@@ -9,6 +9,7 @@ use rp235x_hal as hal;
 
 use embedded_hal::delay::DelayNs;
 use embedded_hal::digital::OutputPin;
+use rtt_target::{rprintln, rtt_init_print};
 
 mod error;
 mod prelude;
@@ -23,6 +24,8 @@ const WL_GPIO0: u32 = 32;
 
 #[hal::entry]
 fn main() -> ! {
+    rtt_init_print!();
+
     let mut pac = hal::pac::Peripherals::take().unwrap();
 
     let mut watchdog = hal::Watchdog::new(pac.WATCHDOG);
@@ -55,6 +58,7 @@ fn main() -> ! {
     // Configure GPIO25 as an output
     let mut led_pin = pins.gpio22.into_push_pull_output();
     loop {
+        rprintln!("Hello ello");
         led_pin.set_high().unwrap();
         timer.delay_ms(500);
         led_pin.set_low().unwrap();
